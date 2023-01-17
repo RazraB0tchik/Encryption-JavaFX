@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #292B2F;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="encryption.main.encryption.MenuController">
+   <children>
+      <Text fill="WHITE" text="RSA">
+         <font>
+            <Font size="32.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="270.0" top="15.0" />
+         </VBox.margin></Text>
+      <ImageView fitHeight="51.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+         <VBox.margin>
+            <Insets top="-56.0" />
+         </VBox.margin>
+         <image>
+            <Image url="@java-logo-vert-blk.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" text="Укажите путь для файла" wrappingWidth="169.896484375">
+         <VBox.margin>
+            <Insets bottom="5.0" left="150.0" top="25.0" />
+         </VBox.margin>
+         <font>
+            <Font name="Arial Narrow Bold" size="13.0" />
+         </font></Text>
+      <TextField alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0">
+         <VBox.margin>
+            <Insets left="150.0" />
+         </VBox.margin>
+      </TextField>
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите размерность ключей">
+         <VBox.margin>
+            <Insets left="210.0" top="25.0" />
+         </VBox.margin>
+      </Text>
+      <ChoiceBox prefHeight="37.0" prefWidth="182.0" fx:id="keySize">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets left="210.0" top="10.0" />
+         </VBox.margin>
+      </ChoiceBox>
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="37.0" prefWidth="174.0" text="Сгенерировать ключи" onAction="#generikKey">
+         <VBox.margin>
+            <Insets left="215.0" top="25.0" />
+         </VBox.margin>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="174.0" text="Зашифровать">
+         <VBox.margin>
+            <Insets left="215.0" top="25.0" />
+         </VBox.margin>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="174.0" text="Расшифровать">
+         <VBox.margin>
+            <Insets left="215.0" top="25.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>
