@@ -1,45 +1,59 @@
-package encryption.main.encryption.generatorKeys;
+package encryption.main.encryption.utils.generationKeys;
 
-import javafx.scene.control.SplitPane;
+import encryption.main.encryption.entity.SelectedParams;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.security.SecureRandom;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 public class GenerationSimpleNumbers {
-    GenerationKeys generationKeys;
-    public void generateNumbers(Integer size, String openExp){
-        Random rand = new Random();
+    public HashMap<String, List<BigInteger>> generateNumbers(Integer keySize, Integer openExponent){
+
+        GenerationKeys generationKeys = new GenerationKeys();
+
         BigInteger numberP;
         BigInteger numberQ;
         do {
-            numberP = new BigInteger(size, rand);
+            numberP = generateNumber(keySize);
         }
         while (!MillerTest(numberP, 10));
 
         do {
-            numberQ = new BigInteger(size, rand);
+            numberQ = generateNumber(keySize);
         }
         while (!MillerTest(numberQ, 10));
-//        System.out.println(numberP);
 
-        generationKeys.generationKeys(numberP, numberQ, openExp);
-//        System.out.println( MillerTest(numberP, 10));
-//        System.out.println(numberP);
-//        System.out.println( MillerTest(numberQ, 10));
-//        System.out.println(numberQ);
-//        System.out.println(openExp);
+
+        HashMap<String, List<BigInteger>> keys = generationKeys.generationKeys(numberP, numberQ, openExponent);
+        return keys;
+    }
+
+    public BigInteger generateNumber(int size){
+        StringBuilder string = new StringBuilder();
+        for(int i =0; i<size; i++){
+            if(i==0){
+                string.append("1");
+            }
+            if(i==size-1){
+                string.append("1");
+            }
+            else {
+                string.append((int) (Math.random() * 2));
+            }
+        }
+        BigInteger number = new BigInteger(string.toString(), 2);
+        return number;
+
     }
 
     public boolean MillerTest(BigInteger n, int k){ //
 
         if(n.mod(BigInteger.TWO).compareTo(BigInteger.ZERO) == 0){
-//
             return false;
         }
         BigInteger t = n.subtract(BigInteger.ONE);
-//        System.out.println(t);
         int s = 0;
 
         while (t.mod(BigInteger.TWO).compareTo(BigInteger.ZERO) == 0){
@@ -47,7 +61,7 @@ public class GenerationSimpleNumbers {
             s++;
         }
         SecureRandom random = new SecureRandom();
-        BigInteger a = BigInteger.ONE;
+        BigInteger a;
         for (int i = 0; i<k; i++){
             byte start_a[] = new byte[n.bitLength()/8];
             do{

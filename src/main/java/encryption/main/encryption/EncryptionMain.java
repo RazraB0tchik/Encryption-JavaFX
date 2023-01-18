@@ -20,10 +20,10 @@ public class EncryptionMain extends Application {
         stage.setTitle("Menu");
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Menu.fxml"))); //FXMLLoader создает интерфейс из файла, при помощи load выгружает объект типа Parent
         stage.setScene(new Scene(root)); //передаем в нашу сцену наш извлеченный FXML
-        stage.setMaxHeight(600);
+        stage.setMaxHeight(700);
         stage.setMaxWidth(600);
         stage.setWidth(600);
-        stage.setHeight(600);
+        stage.setHeight(700);
         stage.setResizable(false);
         stage.show();
     }

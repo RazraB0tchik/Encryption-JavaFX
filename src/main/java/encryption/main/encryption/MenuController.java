@@ -1,29 +1,37 @@
 package encryption.main.encryption;
 
-import encryption.main.encryption.generatorKeys.GenerationSimpleNumbers;
+import encryption.main.encryption.entity.SelectedParams;
+import encryption.main.encryption.mainEncryption.MainEncryptionClass;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
-public class MenuController implements Initializable{
+public class MenuController extends SelectedParams implements Initializable{
 
     @FXML
     private ChoiceBox<String> keySize;
 
     @FXML
-    private TextField openExponent;
+    private ChoiceBox<Integer> openExponent;
 
     @FXML
+    private TextArea textPool;
+
+    MainEncryptionClass mainEncryptionClass = new MainEncryptionClass();
+    @FXML
     private void generikKey(){
-        System.out.println(openExponent.getText());
-        GenerationSimpleNumbers generationSimpleNumbers = new GenerationSimpleNumbers();
-        generationSimpleNumbers.generateNumbers(Integer.valueOf(keySize.getSelectionModel().getSelectedItem()), openExponent.getText());
+//        SelectedParams selectedParamsRSA = new SelectedParams(Integer.valueOf(keySize.getSelectionModel().getSelectedItem()), openExponent.getSelectionModel().getSelectedItem(), textPool.getText());
+        mainEncryptionClass.generateKeys(Integer.valueOf(keySize.getSelectionModel().getSelectedItem()), openExponent.getSelectionModel().getSelectedItem());
+    }
+
+    @FXML
+    private void encryptionText(){
+        mainEncryptionClass.encryptionText(textPool.getText());
     }
 
 
@@ -33,5 +41,11 @@ public class MenuController implements Initializable{
         keySize.getItems().add("256");
         keySize.getItems().add("512");
         keySize.getItems().add("1024");
+
+        openExponent.getItems().add(3);
+        openExponent.getItems().add(5);
+        openExponent.getItems().add(17);
+        openExponent.getItems().add(257);
+        openExponent.getItems().add(65537);
     }
 }
