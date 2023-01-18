@@ -35,20 +35,29 @@
             <Insets left="150.0" />
          </VBox.margin>
       </TextField>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите размерность ключей">
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите &quot;e&quot;">
          <VBox.margin>
-            <Insets left="210.0" top="25.0" />
+            <Insets bottom="5.0" left="360.0" top="25.0" />
          </VBox.margin>
       </Text>
-      <ChoiceBox prefHeight="37.0" prefWidth="182.0" fx:id="keySize">
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите размерность ключей">
+         <VBox.margin>
+            <Insets left="150.0" top="-20.0" />
+         </VBox.margin>
+      </Text>
+      <TextField id="openExponent" fx:id="openExponent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="95.0">
+         <VBox.margin>
+            <Insets left="360.0" top="20.0" />
+         </VBox.margin></TextField>
+      <ChoiceBox fx:id="keySize" prefHeight="37.0" prefWidth="182.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
          <VBox.margin>
-            <Insets left="210.0" top="10.0" />
+            <Insets left="150.0" top="-35.0" />
          </VBox.margin>
       </ChoiceBox>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="37.0" prefWidth="174.0" text="Сгенерировать ключи" onAction="#generikKey">
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#generikKey" prefHeight="37.0" prefWidth="174.0" text="Сгенерировать ключи">
          <VBox.margin>
             <Insets left="215.0" top="25.0" />
          </VBox.margin>

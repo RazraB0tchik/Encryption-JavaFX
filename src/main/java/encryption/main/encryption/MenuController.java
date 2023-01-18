@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.List;
@@ -16,9 +17,13 @@ public class MenuController implements Initializable{
     private ChoiceBox<String> keySize;
 
     @FXML
+    private TextField openExponent;
+
+    @FXML
     private void generikKey(){
+        System.out.println(openExponent.getText());
         GenerationSimpleNumbers generationSimpleNumbers = new GenerationSimpleNumbers();
-        generationSimpleNumbers.generateNumbers(keySize.getSelectionModel().getSelectedItem());
+        generationSimpleNumbers.generateNumbers(Integer.valueOf(keySize.getSelectionModel().getSelectedItem()), openExponent.getText());
     }
 
 
