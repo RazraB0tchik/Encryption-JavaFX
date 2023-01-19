@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #292B2F;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="encryption.main.encryption.MenuController" >
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #292B2F;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="encryption.main.encryption.MenuController">
    <children>
       <Text fill="WHITE" text="RSA">
          <font>
@@ -38,7 +38,7 @@
             <Insets left="150.0" top="25.0" />
          </VBox.margin>
       </Text>
-      <TextField fx:id="fileSave" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="290.0" >
+      <TextField fx:id="fileSave" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="290.0">
          <VBox.margin>
             <Insets left="150.0" top="10.0" />
          </VBox.margin>
@@ -76,8 +76,8 @@
       </Pane>
       <Pane prefHeight="75.0" prefWidth="600.0">
          <children>
-            <Button layoutX="52.0" layoutY="20.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="174.0" text="Расшифровать" />
-            <TextField layoutX="250.0" layoutY="20.0" prefHeight="40.0" prefWidth="318.0" />
+            <Button layoutX="52.0" layoutY="20.0" mnemonicParsing="false" onAction="#decryptionText" prefHeight="37.0" prefWidth="174.0" text="Расшифровать" />
+            <TextField fx:id="decryptionFile" layoutX="250.0" layoutY="20.0" prefHeight="40.0" prefWidth="318.0" />
             <Text fill="WHITE" layoutX="250.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Укажите путь до файла:" wrappingWidth="213.13671875" />
          </children>
          <VBox.margin>

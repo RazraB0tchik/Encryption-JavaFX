@@ -26,18 +26,27 @@ public class MenuController extends SelectedParams implements Initializable{
     @FXML
     private TextField fileSave;
 
+    @FXML
+    private TextField decryptionFile;
+
 
     MainEncryptionClass mainEncryptionClass = new MainEncryptionClass();
     @FXML
     private void generikKey(){
 //        SelectedParams selectedParamsRSA = new SelectedParams(Integer.valueOf(keySize.getSelectionModel().getSelectedItem()), openExponent.getSelectionModel().getSelectedItem(), textPool.getText());
-        mainEncryptionClass.generateKeys(Integer.valueOf(keySize.getSelectionModel().getSelectedItem()), openExponent.getSelectionModel().getSelectedItem());
+        mainEncryptionClass.generateKeys(Integer.valueOf(keySize.getSelectionModel().getSelectedItem()), openExponent.getSelectionModel().getSelectedItem(), fileSave.getText());
     }
 
     @FXML
     private void encryptionText(){
         mainEncryptionClass.encryptionText(textPool.getText(), fileSave.getText());
     }
+
+    @FXML
+    private void decryptionText(){
+        mainEncryptionClass.decryptionText(fileSave.getText(), decryptionFile.getText());
+    }
+
 
 
 

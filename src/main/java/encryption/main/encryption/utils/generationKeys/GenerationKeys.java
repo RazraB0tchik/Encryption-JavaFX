@@ -23,8 +23,15 @@ public class GenerationKeys {
 
         privateKey.add(p);
         privateKey.add(q);
-        privateKey.add(resultsEuclid.get(2)); //d
 
+//        if(resultsEuclid.get(2).compareTo(BigInteger.ZERO) == -1){
+////            System.out.println(resultsEuclid.get(2).multiply(BigInteger.valueOf(-1)) + " im DD!!!!");
+//            privateKey.add((resultsEuclid.get(2)).abs()); //d
+//        }
+//        else{
+            privateKey.add(resultsEuclid.get(2));
+//        }
+        System.out.println(privateKey.get(2) + " b start");
         HashMap keys = new HashMap();
         keys.put("open", openKey);
         keys.put("private", privateKey);

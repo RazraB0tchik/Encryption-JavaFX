@@ -18,12 +18,12 @@ public class GenerationSimpleNumbers {
         do {
             numberP = generateNumber(keySize);
         }
-        while (!MillerTest(numberP, 10));
+        while (!MillerTest(numberP, 100));
 
         do {
             numberQ = generateNumber(keySize);
         }
-        while (!MillerTest(numberQ, 10));
+        while (!MillerTest(numberQ, 100));
 
 
         HashMap<String, List<BigInteger>> keys = generationKeys.generationKeys(numberP, numberQ, openExponent);

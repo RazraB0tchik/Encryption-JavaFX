@@ -10,7 +10,11 @@ import java.lang.reflect.Array;
 import java.math.BigInteger;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -21,21 +25,33 @@ public class Encryption {
         text = text.toLowerCase();
         List<String> elementsASCI = analysisText(text, openKey);
         elementsASCI.forEach(System.out::println);
-        System.out.println(saveWay);
-//        File encryptionResult = new File(saveWay+"/newEncrypt"+ LocalDateTime.now()+".txt");
-//        try {
-//            FileWriter fileWriter = new FileWriter(encryptionResult, false);
-//            elementsASCI.forEach(e -> {
-//                try {
-//                    fileWriter.write(e);
-//                } catch (IOException ex) {
-//                    throw new RuntimeException(ex);
-//                }
-//            });
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        elementsASCI.forEach(System.out::println);
+//        String way = saveWay+"encryptionFiles/newEncryptFile:"+ LocalTime.now()+".txt";
+        String path = saveWay+"encryptionFiles";
+        if(!(new File(path).exists())) {
+            try {
+                Files.createDirectory(Path.of(path));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        File encryptionResult = new File(path+"/newEncryptFile "+ LocalTime.now()+".txt");
+        try {
+            FileWriter fileWriter = new FileWriter(encryptionResult, true);
+            elementsASCI.forEach(e -> {
+                try {
+                    fileWriter.write(e);
+                    fileWriter.flush();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            });
+            fileWriter.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        elementsASCI.forEach(System.out::println);
     }
 
     private List<String> analysisText(String text, List<BigInteger> openKey){
@@ -46,29 +62,28 @@ public class Encryption {
         List<Integer> elementsASCI = new ArrayList<>();
         List<String> elementsNewASCI = new ArrayList<>();
         for(int i = 0; i<charArray.length; i++){
-            asciElement = charArray[i];
-            asciElement-=constant;
-            elementsASCI.add(asciElement);
+            if(charArray[i] == ' '){
+                asciElement = charArray[i];
+                elementsASCI.add(asciElement);
+            }
+            else {
+                asciElement = charArray[i];
+                asciElement -= constant;
+                elementsASCI.add(asciElement);
+            }
         }
-        System.out.println(openKey.get(0));
 
         elementsASCI.forEach(elem -> {
-            BigInteger encryptNumber = BigInteger.valueOf((long) Math.pow(elem, openKey.get(1).intValue())).mod(openKey.get(0));
+//            BigInteger encryptNumber = BigInteger.valueOf((long) Math.pow(elem, openKey.get(1).intValue())).mod(openKey.get(0));
+            BigInteger encryptNumber = BigInteger.valueOf(elem).modPow(openKey.get(1), openKey.get(0));
             String stringEncrypt = encryptNumber.toString();
-//            System.out.println((openKey.get(0)).toString().length() + " mainLength");
             while (stringEncrypt.length() < (openKey.get(0)).toString().length()) {
                 stringEncrypt = "0" + stringEncrypt;
             }
-//            System.out.println(stringEncrypt.length() + " elemLeng");
             elementsNewASCI.add(stringEncrypt);
         });
 
-//        if(asciElement % 100 >=1 && asciElement/100==0){
-//            asciElement*=10;
-//        }
-//        if(asciElement % 100 < 1 && asciElement/100==0){
-//            asciElement*=100;
-//        }
+
 
         return elementsNewASCI;
     }

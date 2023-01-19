@@ -27,7 +27,7 @@ public class EncryptionMain extends Application {
         stage.setHeight(700);
         stage.setResizable(false);
         stage.show();
-        final InputStreamReader inputStreamReader = new InputStreamReader(this.getClass().getResourceAsStream("/localization/ru_RU.properties"), "UTF-8");
+//        final InputStreamReader inputStreamReader = new InputStreamReader(this.getClass().getResourceAsStream("/localization/ru_RU.properties"), "UTF-8");
 
     }
 
