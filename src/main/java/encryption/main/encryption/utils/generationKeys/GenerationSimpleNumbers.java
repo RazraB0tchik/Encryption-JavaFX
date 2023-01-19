@@ -8,17 +8,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
-public class GenerationSimpleNumbers {
+public class GenerationSimpleNumbers { //класс генерации простого числа
     public HashMap<String, List<BigInteger>> generateNumbers(Integer keySize, Integer openExponent){
 
         GenerationKeys generationKeys = new GenerationKeys();
-
         BigInteger numberP;
         BigInteger numberQ;
         do {
-            numberP = generateNumber(keySize);
+            numberP = generateNumber(keySize); //генерируем простые числа
         }
-        while (!MillerTest(numberP, 100));
+        while (!MillerTest(numberP, 100)); //генерируем число, пока тест миллера не будет пройден
 
         do {
             numberQ = generateNumber(keySize);
@@ -30,7 +29,7 @@ public class GenerationSimpleNumbers {
         return keys;
     }
 
-    public BigInteger generateNumber(int size){
+    public BigInteger generateNumber(int size){ //генерация числа в двоичном виде
         StringBuilder string = new StringBuilder();
         for(int i =0; i<size; i++){
             if(i==0){
@@ -48,8 +47,8 @@ public class GenerationSimpleNumbers {
 
     }
 
-    public boolean MillerTest(BigInteger n, int k){ //
-
+    public boolean MillerTest(BigInteger n, int k){ //тест миллера
+        //принимаем число в десятичном виде
         if(n.mod(BigInteger.TWO).compareTo(BigInteger.ZERO) == 0){
             return false;
         }
@@ -63,7 +62,7 @@ public class GenerationSimpleNumbers {
         SecureRandom random = new SecureRandom();
         BigInteger a;
         for (int i = 0; i<k; i++){
-            byte start_a[] = new byte[n.bitLength()/8];
+            byte start_a[] = new byte[n.bitLength()/8]; //генерируем случайное число a
             do{
                 random.nextBytes(start_a);
                 a = new BigInteger(start_a);

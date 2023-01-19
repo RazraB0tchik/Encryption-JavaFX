@@ -33,51 +33,51 @@
             <Insets left="100.0" top="25.0" />
          </VBox.margin>
       </TextArea>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Укажите путь для сохранения файлов программы:">
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Укажите дирректорию для сохранения файлов:">
          <VBox.margin>
-            <Insets left="150.0" top="25.0" />
+            <Insets left="100.0" top="25.0" />
          </VBox.margin>
       </Text>
-      <TextField fx:id="fileSave" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="290.0">
+      <TextField fx:id="fileSave" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="400.0">
          <VBox.margin>
-            <Insets left="150.0" top="10.0" />
+            <Insets left="100.0" top="10.0" />
          </VBox.margin>
       </TextField>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите &quot;e&quot;">
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите &quot;e&quot;:">
          <VBox.margin>
-            <Insets bottom="3.0" left="360.0" top="25.0" />
+            <Insets bottom="3.0" left="400.0" top="25.0" />
          </VBox.margin>
       </Text>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите размерность ключей">
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите размерность ключей:">
          <VBox.margin>
-            <Insets left="150.0" top="-20.0" />
+            <Insets left="105.0" top="-20.0" />
          </VBox.margin>
       </Text>
-      <ChoiceBox fx:id="keySize" prefHeight="37.0" prefWidth="182.0">
+      <ChoiceBox fx:id="keySize" prefHeight="37.0" prefWidth="246.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
          <VBox.margin>
-            <Insets left="150.0" top="10.0" />
+            <Insets left="105.0" top="10.0" />
          </VBox.margin>
       </ChoiceBox>
-      <ChoiceBox fx:id="openExponent" prefHeight="37.0" prefWidth="79.0">
+      <ChoiceBox fx:id="openExponent" prefHeight="37.0" prefWidth="101.0">
          <VBox.margin>
-            <Insets left="360.0" top="-36.0" />
+            <Insets left="400.0" top="-36.0" />
          </VBox.margin>
       </ChoiceBox>
       <Pane prefHeight="75.0" prefWidth="600.0">
          <children>
-            <Button layoutX="150.0" layoutY="19.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#generikKey" prefHeight="37.0" prefWidth="290.0" text="Сгенерировать ключи" />
+            <Button layoutX="100.0" layoutY="19.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#generikKey" prefHeight="37.0" prefWidth="400.0" text="Сгенерировать ключи" />
          </children>
          <VBox.margin>
             <Insets top="25.0" />
          </VBox.margin>
       </Pane>
-      <Pane prefHeight="75.0" prefWidth="600.0">
+      <Pane prefHeight="75.0" prefWidth="578.0">
          <children>
             <Button layoutX="52.0" layoutY="20.0" mnemonicParsing="false" onAction="#decryptionText" prefHeight="37.0" prefWidth="174.0" text="Расшифровать" />
-            <TextField fx:id="decryptionFile" layoutX="250.0" layoutY="20.0" prefHeight="40.0" prefWidth="318.0" />
+            <TextField fx:id="decryptionFile" layoutX="250.0" layoutY="20.0" prefHeight="40.0" prefWidth="312.0" />
             <Text fill="WHITE" layoutX="250.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Укажите путь до файла:" wrappingWidth="213.13671875" />
          </children>
          <VBox.margin>
@@ -87,7 +87,7 @@
       <Pane prefHeight="75.0" prefWidth="600.0">
          <children>
             <Button layoutX="53.0" layoutY="20.0" mnemonicParsing="false" onAction="#encryptionText" prefHeight="37.0" prefWidth="174.0" text="Зашифровать" />
-            <TextField layoutX="250.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="318.0" />
+            <TextField layoutX="250.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="312.0" />
             <Text fill="WHITE" layoutX="250.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Укажите путь до файла:" />
          </children>
          <VBox.margin>

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class GenerationKeys {
+public class GenerationKeys { //класс генерации ключей
     public HashMap<String, List<BigInteger>> generationKeys(BigInteger p, BigInteger q, Integer openExponent){
         List<BigInteger> openKey = new ArrayList<>();
         List<BigInteger> privateKey = new ArrayList<>();
@@ -18,26 +18,28 @@ public class GenerationKeys {
         BigInteger module = p.multiply(q);
         BigInteger eulerFunc = (p.subtract(BigInteger.ONE)).multiply(q.subtract(BigInteger.ONE));
         List<BigInteger> resultsEuclid = euclidAlgorithm(eulerFunc, BigInteger.valueOf(openExponent), a1, a2, b1, b2);
+        HashMap keys = new HashMap();
+
+        if(resultsEuclid.size() != 1){
+        //открытый ключ
         openKey.add(module); //n
         openKey.add(BigInteger.valueOf(openExponent)); //e
 
-        privateKey.add(p);
-        privateKey.add(q);
-
-//        if(resultsEuclid.get(2).compareTo(BigInteger.ZERO) == -1){
-////            System.out.println(resultsEuclid.get(2).multiply(BigInteger.valueOf(-1)) + " im DD!!!!");
-//            privateKey.add((resultsEuclid.get(2)).abs()); //d
-//        }
-//        else{
-            privateKey.add(resultsEuclid.get(2));
-//        }
-        System.out.println(privateKey.get(2) + " b start");
-        HashMap keys = new HashMap();
+        //закрытый ключ
+        privateKey.add(p);//p
+        privateKey.add(q);//q
+        privateKey.add(resultsEuclid.get(2));//d
+        privateKey.add(module);//n
+        privateKey.add(BigInteger.valueOf(openExponent));//e
         keys.put("open", openKey);
         keys.put("private", privateKey);
+        }
+        else {
+            keys.put("invalid_exponent", null);
+        }
         return keys;
     }
-
+    //расширенный алгоритм Евклида
     public List<BigInteger> euclidAlgorithm(BigInteger x, BigInteger y, BigInteger a1, BigInteger a2, BigInteger b1, BigInteger b2) throws RuntimeException {
         List<BigInteger> resultsAlgorithm = new ArrayList<>();
         BigInteger r;
@@ -58,13 +60,14 @@ public class GenerationKeys {
         }
         if (x.compareTo(BigInteger.ONE) != 0) {
             System.out.println("Change openExponent!");
+            resultsAlgorithm.add(x); //m
         }
         else{
             System.out.println("openExponent - OK");
-        }
             resultsAlgorithm.add(x); //m
             resultsAlgorithm.add(a2); //a
             resultsAlgorithm.add(b2); //b
+        }
 
         return resultsAlgorithm;
 

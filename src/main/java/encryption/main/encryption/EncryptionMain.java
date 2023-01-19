@@ -12,7 +12,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Objects;
 
-public class EncryptionMain extends Application {
+public class EncryptionMain extends Application { //класс конфигурации GUI
     @Override
     public void start(Stage stage) throws IOException {
         InputStream icon = getClass().getResourceAsStream("/java-logo-vert-blk.png");
@@ -27,7 +27,6 @@ public class EncryptionMain extends Application {
         stage.setHeight(700);
         stage.setResizable(false);
         stage.show();
-//        final InputStreamReader inputStreamReader = new InputStreamReader(this.getClass().getResourceAsStream("/localization/ru_RU.properties"), "UTF-8");
 
     }
 

@@ -22,7 +22,6 @@ import java.util.List;
 
 public class Encryption {
     public void startEncryption(List<BigInteger> openKey, String text, String saveWay){
-        text = text.toLowerCase();
         List<String> elementsASCI = analysisText(text, openKey);
         elementsASCI.forEach(System.out::println);
 //        String way = saveWay+"encryptionFiles/newEncryptFile:"+ LocalTime.now()+".txt";
@@ -56,13 +55,13 @@ public class Encryption {
 
     private List<String> analysisText(String text, List<BigInteger> openKey){
         int asciElement;
-        String stringElement;
+        String numbers= " 0123456789!#*(),./:;<>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^-_'";
         int constant = 96;
         char charArray[] = text.toCharArray();
         List<Integer> elementsASCI = new ArrayList<>();
         List<String> elementsNewASCI = new ArrayList<>();
         for(int i = 0; i<charArray.length; i++){
-            if(charArray[i] == ' '){
+            if (numbers.contains(String.valueOf(charArray[i]))){
                 asciElement = charArray[i];
                 elementsASCI.add(asciElement);
             }
@@ -74,7 +73,6 @@ public class Encryption {
         }
 
         elementsASCI.forEach(elem -> {
-//            BigInteger encryptNumber = BigInteger.valueOf((long) Math.pow(elem, openKey.get(1).intValue())).mod(openKey.get(0));
             BigInteger encryptNumber = BigInteger.valueOf(elem).modPow(openKey.get(1), openKey.get(0));
             String stringEncrypt = encryptNumber.toString();
             while (stringEncrypt.length() < (openKey.get(0)).toString().length()) {

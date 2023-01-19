@@ -55,7 +55,7 @@ public class Decryption {
                 System.out.println(elem + " !!!!!!!");
                 BigInteger e = new BigInteger(elem);
                 BigInteger result = e.modPow(privateKey.get(2), n);
-                if(result.intValue() == 32){
+                if(result.intValue() >=32 && result.intValue() <97){
                     decryptFinal.add(String.valueOf((char) (result.intValue())));
                 }
                 else{

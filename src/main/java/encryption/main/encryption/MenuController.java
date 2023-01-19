@@ -12,6 +12,8 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ResourceBundle;
 
+//контроллер отвечающий за GUI
+
 public class MenuController extends SelectedParams implements Initializable{
 
     @FXML
@@ -32,18 +34,17 @@ public class MenuController extends SelectedParams implements Initializable{
 
     MainEncryptionClass mainEncryptionClass = new MainEncryptionClass();
     @FXML
-    private void generikKey(){
-//        SelectedParams selectedParamsRSA = new SelectedParams(Integer.valueOf(keySize.getSelectionModel().getSelectedItem()), openExponent.getSelectionModel().getSelectedItem(), textPool.getText());
+    private void generikKey(){ //функция GUI для генерации ключей
         mainEncryptionClass.generateKeys(Integer.valueOf(keySize.getSelectionModel().getSelectedItem()), openExponent.getSelectionModel().getSelectedItem(), fileSave.getText());
     }
 
     @FXML
-    private void encryptionText(){
+    private void encryptionText(){ //функция GUI для шифрования
         mainEncryptionClass.encryptionText(textPool.getText(), fileSave.getText());
     }
 
     @FXML
-    private void decryptionText(){
+    private void decryptionText(){ //функция GUI для расшифрования
         mainEncryptionClass.decryptionText(fileSave.getText(), decryptionFile.getText());
     }
 
