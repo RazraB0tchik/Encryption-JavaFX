@@ -18,11 +18,11 @@ public class MainEncryptionClass {
         keys = generationSimpleNumbers.generateNumbers(keySize, openExponent);
     }
 
-    public void encryptionText(String text){
+    public void encryptionText(String text, String saveFile){
 //        System.out.println(text);
 //        System.out.println(keys.get("open"));
 //        System.out.println("im here!");
-        encryption.startEncryption(keys.get("open"), text);
+        encryption.startEncryption(keys.get("open"), text, saveFile);
     }
 
 }

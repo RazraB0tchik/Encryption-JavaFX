@@ -9,6 +9,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ResourceBundle;
 
 public class MenuController extends SelectedParams implements Initializable{
@@ -22,6 +23,10 @@ public class MenuController extends SelectedParams implements Initializable{
     @FXML
     private TextArea textPool;
 
+    @FXML
+    private TextField fileSave;
+
+
     MainEncryptionClass mainEncryptionClass = new MainEncryptionClass();
     @FXML
     private void generikKey(){
@@ -31,7 +36,7 @@ public class MenuController extends SelectedParams implements Initializable{
 
     @FXML
     private void encryptionText(){
-        mainEncryptionClass.encryptionText(textPool.getText());
+        mainEncryptionClass.encryptionText(textPool.getText(), fileSave.getText());
     }
 
 

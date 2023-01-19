@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #292B2F;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="encryption.main.encryption.MenuController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #292B2F;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="encryption.main.encryption.MenuController" >
    <children>
       <Text fill="WHITE" text="RSA">
          <font>
@@ -33,6 +33,16 @@
             <Insets left="100.0" top="25.0" />
          </VBox.margin>
       </TextArea>
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Укажите путь для сохранения файлов программы:">
+         <VBox.margin>
+            <Insets left="150.0" top="25.0" />
+         </VBox.margin>
+      </Text>
+      <TextField fx:id="fileSave" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="290.0" >
+         <VBox.margin>
+            <Insets left="150.0" top="10.0" />
+         </VBox.margin>
+      </TextField>
       <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите &quot;e&quot;">
          <VBox.margin>
             <Insets bottom="3.0" left="360.0" top="25.0" />
@@ -81,7 +91,7 @@
             <Text fill="WHITE" layoutX="250.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Укажите путь до файла:" />
          </children>
          <VBox.margin>
-            <Insets top="20.0" />
+            <Insets top="10.0" />
          </VBox.margin>
       </Pane>
    </children>
