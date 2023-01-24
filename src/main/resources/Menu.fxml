@@ -6,18 +6,23 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: #292B2F;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="encryption.main.encryption.MenuController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="700.0" style="-fx-background-color: #292B2F;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="encryption.main.encryption.MenuController">
    <children>
+      <Button mnemonicParsing="false" onAction="#showHelp" prefHeight="36.0" prefWidth="37.0" text="?">
+         <VBox.margin>
+            <Insets left="665.0" />
+         </VBox.margin>
+      </Button>
       <Text fill="WHITE" text="RSA">
          <font>
             <Font size="32.0" />
          </font>
          <VBox.margin>
-            <Insets left="270.0" top="15.0" />
+            <Insets left="310.0" top="15.0" />
          </VBox.margin></Text>
-      <ImageView fitHeight="51.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="51.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
          <VBox.margin>
-            <Insets top="-56.0" />
+            <Insets top="-90.0" />
          </VBox.margin>
          <image>
             <Image url="@java-logo-vert-blk.png" />
@@ -28,67 +33,73 @@
             <Insets bottom="-20.0" left="100.0" top="20.0" />
          </VBox.margin>
       </Text>
-      <TextArea fx:id="textPool" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="400.0">
+      <TextArea fx:id="textPool" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="515.0">
          <VBox.margin>
             <Insets left="100.0" top="25.0" />
          </VBox.margin>
       </TextArea>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Укажите дирректорию для сохранения файлов:">
-         <VBox.margin>
-            <Insets left="100.0" top="25.0" />
-         </VBox.margin>
-      </Text>
-      <TextField fx:id="fileSave" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="400.0">
-         <VBox.margin>
-            <Insets left="100.0" top="10.0" />
-         </VBox.margin>
-      </TextField>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите &quot;e&quot;:">
-         <VBox.margin>
-            <Insets bottom="3.0" left="400.0" top="25.0" />
-         </VBox.margin>
-      </Text>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите размерность ключей:">
-         <VBox.margin>
-            <Insets left="105.0" top="-20.0" />
-         </VBox.margin>
-      </Text>
-      <ChoiceBox fx:id="keySize" prefHeight="37.0" prefWidth="246.0">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <VBox.margin>
-            <Insets left="105.0" top="10.0" />
-         </VBox.margin>
-      </ChoiceBox>
-      <ChoiceBox fx:id="openExponent" prefHeight="37.0" prefWidth="101.0">
-         <VBox.margin>
-            <Insets left="400.0" top="-36.0" />
-         </VBox.margin>
-      </ChoiceBox>
-      <Pane prefHeight="75.0" prefWidth="600.0">
+      <Pane prefHeight="85.0" prefWidth="700.0">
          <children>
-            <Button layoutX="100.0" layoutY="19.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#generikKey" prefHeight="37.0" prefWidth="400.0" text="Сгенерировать ключи" />
+            <Text fill="WHITE" layoutX="105.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Укажите директорию для сохранения файлов:" />
+            <TextField fx:id="fileSave" layoutX="293.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="319.0" />
+            <Button layoutX="102.0" layoutY="31.0" mnemonicParsing="false" onAction="#selectDirectoryForWork" prefHeight="37.0" prefWidth="181.0" text="Указать директорию" />
          </children>
          <VBox.margin>
             <Insets top="25.0" />
          </VBox.margin>
       </Pane>
-      <Pane prefHeight="75.0" prefWidth="578.0">
+      <Pane prefHeight="70.0" prefWidth="700.0">
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
          <children>
-            <Button layoutX="52.0" layoutY="20.0" mnemonicParsing="false" onAction="#decryptionText" prefHeight="37.0" prefWidth="174.0" text="Расшифровать" />
-            <TextField fx:id="decryptionFile" layoutX="250.0" layoutY="20.0" prefHeight="40.0" prefWidth="312.0" />
-            <Text fill="WHITE" layoutX="250.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Укажите путь до файла:" wrappingWidth="213.13671875" />
+            <Text fill="WHITE" layoutX="429.0" layoutY="11.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите &quot;e&quot;:" />
+            <Text fill="WHITE" layoutX="108.0" layoutY="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите размерность ключей:" />
+            <ChoiceBox fx:id="keySize" layoutX="105.0" layoutY="26.0" prefHeight="37.0" prefWidth="293.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </ChoiceBox>
+            <ChoiceBox fx:id="openExponent" layoutX="429.0" layoutY="26.0" prefHeight="37.0" prefWidth="181.0" />
+         </children>
+      </Pane>
+      <Pane prefHeight="75.0" prefWidth="600.0">
+         <children>
+            <Button layoutX="106.0" layoutY="19.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#generikKey" prefHeight="37.0" prefWidth="509.0" text="Сгенерировать ключи" />
          </children>
          <VBox.margin>
             <Insets top="15.0" />
          </VBox.margin>
       </Pane>
-      <Pane prefHeight="75.0" prefWidth="600.0">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="148.0" prefWidth="700.0">
          <children>
-            <Button layoutX="53.0" layoutY="20.0" mnemonicParsing="false" onAction="#encryptionText" prefHeight="37.0" prefWidth="174.0" text="Зашифровать" />
-            <TextField layoutX="250.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="312.0" />
-            <Text fill="WHITE" layoutX="250.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Укажите путь до файла:" />
+            <TextField fx:id="openkey" layoutX="284.0" layoutY="21.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="330.0" />
+            <TextField fx:id="privateKey" layoutX="285.0" layoutY="87.0" prefHeight="44.0" prefWidth="330.0" />
+            <Button layoutX="108.0" layoutY="20.0" mnemonicParsing="false" onAction="#checkFileOpen" prefHeight="44.0" prefWidth="162.0" text="Ук. Открытый ключ" />
+            <Text fill="WHITE" layoutX="109.0" layoutY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Укажите ключи:" />
+            <Button layoutX="108.0" layoutY="87.0" mnemonicParsing="false" onAction="#checkFilePrivate" prefHeight="44.0" prefWidth="162.0" text="Ук. Закрытый ключ" />
+         </children>
+         <VBox.margin>
+            <Insets top="25.0" />
+         </VBox.margin>
+      </Pane>
+      <Pane prefHeight="140.0" prefWidth="700.0">
+         <children>
+            <Button layoutX="107.0" layoutY="82.0" mnemonicParsing="false" onAction="#decryptionText" prefHeight="37.0" prefWidth="509.0" text="Расшифровать" />
+            <TextField fx:id="decryptionFile" layoutX="285.0" layoutY="24.0" prefHeight="40.0" prefWidth="330.0" />
+            <Text fill="WHITE" layoutX="110.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Укажите путь до файла:" wrappingWidth="213.13671875" />
+            <Button layoutX="108.0" layoutY="24.0" mnemonicParsing="false" onAction="#selectFileForDecrypt" prefHeight="40.0" prefWidth="162.0" text="Указать файл" />
+         </children>
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin>
+      </Pane>
+      <Pane prefHeight="123.0" prefWidth="700.0">
+         <children>
+            <Button layoutX="106.0" layoutY="76.0" mnemonicParsing="false" onAction="#encryptionText" prefHeight="37.0" prefWidth="509.0" text="Зашифровать" />
+            <TextField fx:id="encoderFile" layoutX="284.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="330.0" />
+            <Text fill="WHITE" layoutX="110.0" layoutY="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Укажите путь до файла:" />
+            <Button layoutX="105.0" layoutY="21.0" mnemonicParsing="false" onAction="#selectFileForEncrypt" prefHeight="37.0" prefWidth="162.0" text="Указать файл" />
          </children>
          <VBox.margin>
             <Insets top="10.0" />

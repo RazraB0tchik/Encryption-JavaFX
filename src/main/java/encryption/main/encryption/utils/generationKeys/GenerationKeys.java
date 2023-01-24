@@ -1,11 +1,13 @@
 package encryption.main.encryption.utils.generationKeys;
 
+import javafx.scene.control.Alert;
+
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class GenerationKeys { //класс генерации ключей
+public class GenerationKeys {
     public HashMap<String, List<BigInteger>> generationKeys(BigInteger p, BigInteger q, Integer openExponent){
         List<BigInteger> openKey = new ArrayList<>();
         List<BigInteger> privateKey = new ArrayList<>();
@@ -21,11 +23,9 @@ public class GenerationKeys { //класс генерации ключей
         HashMap keys = new HashMap();
 
         if(resultsEuclid.size() != 1){
-        //открытый ключ
         openKey.add(module); //n
         openKey.add(BigInteger.valueOf(openExponent)); //e
 
-        //закрытый ключ
         privateKey.add(p);//p
         privateKey.add(q);//q
         privateKey.add(resultsEuclid.get(2));//d
@@ -39,7 +39,6 @@ public class GenerationKeys { //класс генерации ключей
         }
         return keys;
     }
-    //расширенный алгоритм Евклида
     public List<BigInteger> euclidAlgorithm(BigInteger x, BigInteger y, BigInteger a1, BigInteger a2, BigInteger b1, BigInteger b2) throws RuntimeException {
         List<BigInteger> resultsAlgorithm = new ArrayList<>();
         BigInteger r;
@@ -59,7 +58,10 @@ public class GenerationKeys { //класс генерации ключей
             b1 = b;
         }
         if (x.compareTo(BigInteger.ONE) != 0) {
-            System.out.println("Change openExponent!");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Change open exponent");
+            alert.setContentText("Please, enter another open exponent (e)");
+            alert.showAndWait();
             resultsAlgorithm.add(x); //m
         }
         else{

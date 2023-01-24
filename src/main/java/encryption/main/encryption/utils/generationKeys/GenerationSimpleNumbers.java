@@ -1,6 +1,5 @@
 package encryption.main.encryption.utils.generationKeys;
 
-import encryption.main.encryption.entity.SelectedParams;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
@@ -8,16 +7,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
-public class GenerationSimpleNumbers { //класс генерации простого числа
+public class GenerationSimpleNumbers {
     public HashMap<String, List<BigInteger>> generateNumbers(Integer keySize, Integer openExponent){
 
         GenerationKeys generationKeys = new GenerationKeys();
         BigInteger numberP;
         BigInteger numberQ;
         do {
-            numberP = generateNumber(keySize); //генерируем простые числа
+            numberP = generateNumber(keySize);
         }
-        while (!MillerTest(numberP, 100)); //генерируем число, пока тест миллера не будет пройден
+        while (!MillerTest(numberP, 100));
 
         do {
             numberQ = generateNumber(keySize);
@@ -29,7 +28,7 @@ public class GenerationSimpleNumbers { //класс генерации простого числа
         return keys;
     }
 
-    public BigInteger generateNumber(int size){ //генерация числа в двоичном виде
+    public BigInteger generateNumber(int size){
         StringBuilder string = new StringBuilder();
         for(int i =0; i<size; i++){
             if(i==0){
@@ -47,8 +46,7 @@ public class GenerationSimpleNumbers { //класс генерации простого числа
 
     }
 
-    public boolean MillerTest(BigInteger n, int k){ //тест миллера
-        //принимаем число в десятичном виде
+    public boolean MillerTest(BigInteger n, int k){
         if(n.mod(BigInteger.TWO).compareTo(BigInteger.ZERO) == 0){
             return false;
         }
@@ -62,7 +60,7 @@ public class GenerationSimpleNumbers { //класс генерации простого числа
         SecureRandom random = new SecureRandom();
         BigInteger a;
         for (int i = 0; i<k; i++){
-            byte start_a[] = new byte[n.bitLength()/8]; //генерируем случайное число a
+            byte start_a[] = new byte[n.bitLength()/8];
             do{
                 random.nextBytes(start_a);
                 a = new BigInteger(start_a);

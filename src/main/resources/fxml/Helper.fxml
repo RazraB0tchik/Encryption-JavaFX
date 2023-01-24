@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: #292B2F;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="encryption.main.encryption.HelpController">
+   <children>
+      <VBox layoutY="-3.0" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #292B2F;">
+         <children>
+            <Pane prefHeight="58.0" prefWidth="500.0" style="-fx-background-color: #292B2F;">
+               <children>
+                  <Text fill="WHITE" layoutX="23.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Инструкция по использованию программы">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <TextArea fx:id="areaHelp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="460.0" text="Шаги:&#10;&#10;1. Укажите дирректорию для сохранения файла, после &#10;запуска программы по указанному пути создатся папка,&#10;где будут храниться все файлы, созданные во время рабо&#10;ты программы.&#10;&#10;2. Если у вас нет заранее сгенерированных ключей, сгенери&#10;руйте их, указав размерность и открытую экспоненту (e). &#10;&#10;После создания, ключи будут сгенерированы в папке указан&#10;ной в пункте 1.&#10;&#10;3. Укажите файл для шифрования. Вы можете выбрать файл&#10;по определенному пути, либо ввести текст в поле для ввода.&#10;&#10;ВНИМАНИЕ: Если одновременно введен текст в поле ввода и &#10;указан путь до файла, приоритет будет у файла указанного &#10;в пути для шифрования!&#10;&#10;4. Для зашифрования нажмите на кнопку &quot;Зашифровать&quot;, &#10;указанный текст либо файл будет зашифрован последним &#10;сгенерированным ключом. &#10;&#10;Если для шифрования вы хотите применить свою пару ключ&#10;чей, вам будет необходимо указать пути до открытого и зак&#10;рытого ключа в пункте &quot;Укажите ключи&quot;.&#10;&#10;После шифрования файл с зашифрованным сообщением бу&#10;дет создан в папке, указанной в пункте 1.&#10;&#10;5. Для расшифрования укажите путь до файла и нажмите на&#10;кнопку &quot;Расшифровать&quot;.&#10;&#10;&#10;После шифрования файл с расшифрованным сообщением &#10;будет создан в папке, указанной в пункте 1.">
+               <VBox.margin>
+                  <Insets left="20.0" top="45.0" />
+               </VBox.margin>
+            </TextArea>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
