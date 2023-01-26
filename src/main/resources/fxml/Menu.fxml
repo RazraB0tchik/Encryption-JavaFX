@@ -25,7 +25,7 @@
             <Insets top="-90.0" />
          </VBox.margin>
          <image>
-            <Image url="@java-logo-vert-blk.png" />
+            <Image url="@../java-logo-vert-blk.png" />
          </image>
       </ImageView>
       <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Поле для ввода текста:">
